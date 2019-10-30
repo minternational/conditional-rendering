@@ -26,7 +26,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.isLoggedIn ? <button className="loggedIn" onClick={this.handleClick}>Logout</button> : <button className="loggedOut" onClick={this.handleClick}>Login</button>}
+        {this.state.isLoggedIn ?
+        <button className="loggedIn" onClick={this.handleClick}>Logout</button> :
+        <button className="loggedOut" onClick={this.handleClick}>Login</button>}
       </div>
     );
   }
