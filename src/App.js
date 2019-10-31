@@ -1,37 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      isLoggedIn: false
-    }
+function App() {
 
-    this.handleClick = this.handleClick.bind(this)
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-  handleClick = () => {
-    this.setState({
-      isLoggedIn: !this.state.isLoggedIn
-    })
-      if (!this.state.isLoggedIn) {
-        return document.getElementById("content").innerText = "Du bist eingeloggt!"
-      } else {
-        return document.getElementById("content").innerText = "Du bist ausgeloggt!"
-        }
+  const handleClick = (e) => {
+    setIsLoggedIn(!isLoggedIn)
   }
   
-  render() {
-    return (
-      <div className="App">
-        {this.state.isLoggedIn ?
-        <button className="loggedIn" onClick={this.handleClick}>Logout</button> :
-        <button className="loggedOut" onClick={this.handleClick}>Login</button>}
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      {isLoggedIn
+      ? <><h1>Du bist eingeloggt!</h1><button className="loggedIn" onClick={handleClick}>Logout</button></>
+      : <><h1>Du bist ausgeloggt!</h1><button className="loggedOut" onClick={handleClick}>Login</button></>}
+    </div>
+  );
 }
 
 export default App;
